@@ -7,6 +7,8 @@ Mensión especial al profe Nico que explica muy bien.
 
 classDiagram
     direction TB
+```mermaid
+
 
     class Main {
         +main(args) void
@@ -60,3 +62,4 @@ classDiagram
     Main ..> IndividualClient : crea y utiliza
     Main ..> PremiunClient : crea y utiliza
     Main ..> ClientCompany : crea y utiliza
+```
