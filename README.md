@@ -5,10 +5,13 @@ En la carpeta clientes se encuentran 4 clases que simulan ser 3 tipos de cliente
 
 Mensión especial al profe Nico que explica muy bien.
 
+## Diagrama de clases
+
+El siguiente diagrama representa la jerarquía de clientes bancarios del proyecto.
+
+```mermaid
 classDiagram
     direction TB
-```mermaid
-
 
     class Main {
         +main(args) void
@@ -59,7 +62,33 @@ classDiagram
     Client <|-- PremiunClient : hereda
     Client <|-- ClientCompany : hereda
 
-    Main ..> IndividualClient : crea y utiliza
-    Main ..> PremiunClient : crea y utiliza
-    Main ..> ClientCompany : crea y utiliza
+    Main ..> IndividualClient : crea
+    Main ..> PremiunClient : crea
+    Main ..> ClientCompany : crea
 ```
+
+### Explicación
+
+`Client` es la clase abstracta que contiene los atributos comunes a todos los clientes:
+
+- Identificador único.
+- Dirección.
+- Número de teléfono.
+- Correo electrónico.
+- Fecha de registro en el banco.
+- Ingresos declarados.
+
+Las clases `IndividualClient`, `PremiunClient` y `ClientCompany` heredan de `Client`. Cada una agrega los atributos específicos correspondientes a su tipo de cliente.
+
+Todas las subclases sobrescriben el método `showClient()` para mostrar tanto la información heredada como sus datos particulares.
+
+La clase `Main` crea y utiliza objetos de las tres clases concretas para comprobar su funcionamiento.
+
+### Referencias del diagrama
+
+- `+` indica un atributo o método público.
+- `-` indica un atributo o método privado.
+- `<|--` representa una relación de herencia.
+- `..>` representa que una clase utiliza o crea objetos de otra clase.
+- `<<abstract>>` indica que la clase es abstracta y no puede instanciarse directamente.
+
